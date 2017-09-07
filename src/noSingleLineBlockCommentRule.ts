@@ -38,7 +38,8 @@ class NoSingleLineBlockCommentRuleWalker extends Lint.RuleWalker {
             const tokenText = fullText.substring(range.pos, range.end);
             if (tokenSyntaxKind === ts.SyntaxKind.MultiLineCommentTrivia
                            && this.isSingleLineComment(tokenText)
-                           && !this.isTsLintSuppression(tokenText)) {
+                           && !this.isTsLintSuppression(tokenText)
+                           && !fullText.substring(range.end).match(/^[^\s]+.*\n/)) {
                 this.addFailureAt(range.pos, range.end - range.pos, FAILURE_STRING);
             }
         });

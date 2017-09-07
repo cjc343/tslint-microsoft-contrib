@@ -28,6 +28,14 @@ describe('noSingleLineBlockCommentRule', () : void => {
         TestHelper.assertViolations(ruleName, script, [ ]);
     });
 
+    it('should pass on inline block comments', () : void => {
+        const script : string = `
+            const something = function(a /* blah */, b /* bleh */) { };
+        `;
+
+        TestHelper.assertViolations(ruleName, script, [ ]);
+    });
+
     it('should fail on a trailing single line comment', () : void => {
         const script : string = `
             const something = 'whatever'; /* my comment */

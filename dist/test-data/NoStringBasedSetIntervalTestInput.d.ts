@@ -1,0 +1,12 @@
+declare var typedStringVariable: string;
+declare var functionVariable: () => void;
+declare var anyVariable: any;
+declare var createFunction: () => (() => void);
+declare var untypedCreateFunction: () => any;
+declare var stringFunction: () => string;
+declare var a: number;
+declare var b: any;
+declare var c: number;
+declare function invokeInterval(functionArg: () => void): void;
+declare function invokInterval2(stringArg: string): void;
+declare function invokeInterval3(anyArg: any): void;
